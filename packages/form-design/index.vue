@@ -20,7 +20,7 @@
         @save="handleSave"
       />
       <!-- 表单主体 -->
-      <form-content
+      <form-layout
         :listObj="formJson"
         :config="formJson.config"
         :currEditItem="currEditItem"
@@ -38,7 +38,8 @@
 
 <script>
 import baseConfig from './config'
-import FormContent from './form-content/FormContent'
+import FormLayout from './form-content/FormLayout'
+
 import ComponentsList from './components-list/Index'
 import Navbar from './form-content/Navbar'
 import ComponentProperty from './component-property/Index'
@@ -46,7 +47,7 @@ import ComponentProperty from './component-property/Index'
 export default {
   name: 'YlFormDesign',
   components: {
-    FormContent,
+    FormLayout,
     ComponentsList,
     Navbar,
     ComponentProperty

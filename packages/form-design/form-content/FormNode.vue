@@ -14,6 +14,11 @@
       >
       <h1 v-show="formItem.type !== 'button'" class="label">{{ formItem.options.label }}</h1>
       
+      <!-- 分割线 -->
+      <vs-divider
+        v-if="formItem.type === 'divider'"
+      />
+
       <!-- 文本输入框 -->
       <vs-input
         v-if="formItem.type === 'input'"

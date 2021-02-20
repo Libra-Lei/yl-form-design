@@ -1,8 +1,12 @@
 /** 布局边框颜色 */
 @layoutBorderColor: rgba(237, 239, 241, .71);
-@activeBorderColor: rgb(64, 158, 255);
-@gridBorderColor: rgba(220, 195, 144, 1);
-@gridBgColor: rgba(220, 195, 144, .51);
+
+@activeBorderColor: rgb(64, 158, 255); // 选中组件的 边框颜色
+@activeBgColor: rgba(183, 221, 255, 0.5); // 背景色
+
+@gridBorderColor: rgba(220, 195, 144, 1); // 栅格布局的 边框色
+@gridBgColor: rgba(220, 195, 144, .51); // 栅格布局的 背景色
+@gridWrapBgColor: rgba(141, 190, 228, 0.12); // 栅格布局的 父元素 背景色（突出显示栅格布局）
 
 #d-form-wrap {
   display: flex;
@@ -80,10 +84,11 @@
     /** 栅格布局 */
     .grid-drag-wrap {
       min-height: 100px;
+      height: 100%;
       width: 100%;
 
       background-color: @gridBgColor;
-      border: 1px dotted @gridBorderColor; 
+      border: 1px dotted @gridBorderColor;
     }
 
     /** 表单组件 + label 布局 */
@@ -143,11 +148,17 @@
     /** 表单组件拖拽背景样式 */
     .form-item-wrap {
       position: relative;
-      padding: 0 15px;
+      padding: 10px 15px;
       cursor: pointer;
+      
+      /** 栅格布局背景突出显示 */
+      &.grid {
+        background-color: @gridWrapBgColor;
+      }
+
       &.active {
-        background-color: rgba(183, 221, 255, 0.5);
-        padding: 10px 15px;
+        background-color: @activeBgColor;
+        // padding: 10px 15px;
         cursor: move;
         &::before {
           background-color: @activeBorderColor;

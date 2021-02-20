@@ -5,87 +5,84 @@
  * @LastEditors: Libra
 -->
 <template>
-  <div class="drag-box">
-    <div
-      class="form-item-wrap"
-      :class="{'active': currEditItem.key === formItem.key}"
-      @click.stop="$emit('click-item', formItem)"
+  <div class="form-conent">
+    <draggable
+      class="drag-wrap"
+      tag="ul"
+      group="form-draggable"
+      v-model="formList"
+      :animation="660"
+      :sort="true"
+      @add="handleAddItem($event, formList)"
+      @start="handleStartItem($event, formList)"
+    >
+      <!-- 布局 start -->
+      <div
+        class="drag-box"
+        v-for="formItem in formList"
+        :key="formItem.key"
       >
-      <!-- 删除按钮 -->
-      <vs-icon
-        class="trash-btn"
-        icon="delete"
-      />
-
-      <!-- TODO: 栅格布局 -->
-      <template v-if="formItem.type === 'grid'">
-        <vs-row>
-          <vs-col
-            v-for="(col, index) in formItem.columns"
-            :key="index"
-            :vs-w="col.span"
+        <div
+          class="form-item-wrap"
+          :class="{'active': currEditItem.key === formItem.key, 'grid': formItem.type === 'grid'}"
+          @click.stop="handleClickItem(formItem)"
           >
-            <!-- <draggable
-              class="grid-drag-wrap"
-              tag="ul"
-              :group="{name: 'form-draggable', pull: false, put: true}"
-              v-model="col.list"
-              :animation="660"
-              :sort="true"
-              @add="handleAddItem($event, col.list)"
-              @start="handleStartItem($event, col.list)"
-            >
-              <form-layout
-                v-for="item in col.list"
-                :key="item.key"
-                :formItem="item"
-                :formLayout="formLayout"
-                :currEditItem="currEditItem"
-                @click-item="handleClickItem"
-              />
-            </draggable> -->
+          <!-- 删除按钮 -->
+          <vs-icon
+            class="trash-btn"
+            icon="delete"
+          />
 
-            <!-- 调用 form-content -->
-            <form-content
-              :listObj="col"
-              :config="formLayout"
-              :currEditItem="currEditItem"
-              @updata-form-list="handleUpdateFormList"
-              @change-curr-edit-item="handleChangeCurrEditItem"
+          <!-- TODO: 栅格布局 -->
+          <template v-if="formItem.type === 'grid'">
+            <vs-row>
+              <vs-col
+                v-for="(col, index) in formItem.columns"
+                :key="index"
+                :vs-w="col.span"
+              >
+                <form-layout
+                  class="grid-drag-wrap"
+                  :listObj="col"
+                  :config="config"
+                  :currEditItem="currEditItem"
+                  @updata-form-list="handleUpdateFormList"
+                  @change-curr-edit-item="handleChangeCurrEditItem"
+                  />
+              </vs-col>
+            </vs-row>
+          </template>
+
+          <!-- 普通布局， 宽度100% -->
+          <template
+            v-else
+          >
+            <form-node
+              :formItem="formItem"
+              :formLayout="config"
             />
+          </template>
+        </div>
+      </div>
+      <!-- 布局 end -->
 
-          </vs-col>
-        </vs-row>
-      </template>
-
-      <!-- 普通布局， 宽度100% -->
-      <template
-        v-else
-      >
-        <form-node
-          :formItem="formItem"
-          :formLayout="formLayout"
-        />
-      </template>
-    </div>
+    </draggable>
   </div>
 </template>
 
 <script>
-// import draggable from 'vuedraggable'
-
-import FormContent from './FormContent'
+import draggable from 'vuedraggable'
 import FormNode from './FormNode'
 
 export default {
   name: 'FormLayout',
-  components: { FormContent, FormNode },
+  components: { draggable, FormNode },
   props: {
-    formItem: {
+    listObj: { // 表单项目对象， 必须包含list中 { list: [], ... }
       type: Object,
       required: true
     },
-    formLayout: {
+    config: {
       type: Object,
       required: true
     },
@@ -94,14 +91,45 @@ export default {
       required: true
     }
   },
+  computed: {
+    formList: { // 表单项集合
+      get: function () {
+        return this.listObj.list;
+      },
+      set: function (v) {
+        // deep clone
+        const list = JSON.parse(JSON.stringify(v));
+        this.$emit('updata-form-list', list, this.listObj.key);
+      }
+    }
+  },
   methods: {
-    handleUpdateFormList(list) {
-      console.log('list: ', list);
+    handleAddItem(e, list) {
+      // 更新当前正在编辑的组件
+      this.$emit('change-curr-edit-item', list[e.newIndex]);
+    },
+    handleStartItem(e, list) {
+      // 更新当前正在编辑的组件
+      this.$emit('change-curr-edit-item', list[e.oldIndex]);
+    },
+    handleClickItem(item) {
+      this.$emit('change-curr-edit-item', item);
+    },
 
+    handleUpdateFormList(list, key) {
+      if (!key) return;
+      // TODO: 目前只考虑了，栅格布局（columns）
+      for (let i = 0; i < this.formList.length; i++) {
+        if (!this.formList[i].columns) continue;
+        const index = this.formList[i].columns.findIndex(x => x.key === key);
+        if (index >= 0) {
+          this.formList[i].columns[index].list = list;
+          return;
+        }
+      }
     },
     handleChangeCurrEditItem(item) {
-      console.log('item: ', item);
-
+      this.$emit('change-curr-edit-item', item);
     }
   }
 }
