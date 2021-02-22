@@ -6,7 +6,7 @@
  */
 module.exports = {
   publicPath: '/',
-  outputDir: 'docs',
+  outputDir: 'dist',
   assetsDir: 'assets',
   css: {},
   devServer: {
