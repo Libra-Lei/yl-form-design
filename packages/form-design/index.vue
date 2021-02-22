@@ -44,6 +44,8 @@ import ComponentsList from './components-list/Index'
 import Navbar from './form-content/Navbar'
 import ComponentProperty from './component-property/Index'
 
+import { updateNode } from '../utils/index'
+
 export default {
   name: 'YlFormDesign',
   components: {
@@ -67,6 +69,17 @@ export default {
       currEditItem: { key: null } // 当前正在编辑的表单项（激活状态，编辑属性）
     }
   },
+  watch: {
+    currEditItem: {
+      deep: true,
+      handler(nv) {
+        if (!nv.key) return;
+        // // 查找节点, 显式更新节点
+        const org = JSON.parse(JSON.stringify(this.formJson));
+        this.formJson = updateNode(org, nv);
+      }
+    }
+  },
   methods: {
     // 更新表单json, 表单项 list
     handleUpdateFormList(list) {
@@ -74,7 +87,7 @@ export default {
     },
     // 更新当前正在编辑的组件
     handleChangeCurrEditItem(item) {
-      this.currEditItem = item;
+      this.currEditItem = JSON.parse(JSON.stringify(item));
     },
     
     // 操作====================

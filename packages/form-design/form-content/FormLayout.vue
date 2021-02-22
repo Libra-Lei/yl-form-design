@@ -33,7 +33,7 @@
             icon="delete"
           />
 
-          <!-- TODO: 栅格布局 -->
+          <!-- 栅格布局 -->
           <template v-if="formItem.type === 'grid'">
             <vs-row>
               <vs-col
