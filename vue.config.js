@@ -5,7 +5,7 @@
  * @LastEditors: Libra
  */
 module.exports = {
-  publicPath: '/docs',
+  publicPath: '/',
   outputDir: 'docs',
   assetsDir: 'assets',
   css: {},
