@@ -12,11 +12,16 @@
       class="form-item-components"
       :class="{'lr': formLayout.labelPosition === 'left'}"
       >
-      <h1 v-show="formItem.type !== 'button'" class="label">{{ formItem.options.label }}</h1>
+      <h1 v-show="showLabelTitle" class="label">{{ formItem.options.label }}</h1>
       
       <!-- 分割线 -->
       <vs-divider
-        v-if="formItem.type === 'divider'"
+        v-if="formItem.type === 'divider' && formItem.options.label"
+      >
+        {{ formItem.options.label }}
+      </vs-divider>
+      <vs-divider
+        v-if="formItem.type === 'divider' && !formItem.options.label"
       />
       
       <!-- 文本输入框 -->
@@ -157,6 +162,13 @@ export default {
     formLayout: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    // 是不是显示 表单项标题
+    showLabelTitle() {
+      const blacks = ['button', 'grid', 'divider'];
+      return blacks.findIndex(x => x === this.formItem.type) < 0;
     }
   }
 }

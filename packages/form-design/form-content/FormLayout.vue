@@ -31,6 +31,7 @@
           <vs-icon
             class="trash-btn"
             icon="delete"
+            @click="handleDelete(formItem.key)"
           />
 
           <!-- 栅格布局 -->
@@ -48,6 +49,7 @@
                   :currEditItem="currEditItem"
                   @updata-form-list="handleUpdateFormList"
                   @change-curr-edit-item="handleChangeCurrEditItem"
+                  @delete-node="handleDeleteNode"
                   />
               </vs-col>
             </vs-row>
@@ -115,6 +117,10 @@ export default {
     handleClickItem(item) {
       this.$emit('change-curr-edit-item', item);
     },
+    // 删除组件
+    handleDelete(key) {
+      this.$emit('delete-node', key);
+    },
 
     handleUpdateFormList(list, key) {
       if (!key) return;
@@ -130,6 +136,9 @@ export default {
     },
     handleChangeCurrEditItem(item) {
       this.$emit('change-curr-edit-item', item);
+    },
+    handleDeleteNode(key) {
+      this.$emit('delete-node', key);
     }
   }
 }

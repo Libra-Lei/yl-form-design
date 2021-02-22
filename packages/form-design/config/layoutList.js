@@ -11,7 +11,7 @@ export default [
     label: '分割线',
     icon: 'power_input',
     options: {
-      text: null
+      label: ''
     },
     key: '',
     model: ''

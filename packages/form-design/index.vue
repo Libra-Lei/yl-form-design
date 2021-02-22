@@ -26,6 +26,7 @@
         :currEditItem="currEditItem"
         @updata-form-list="handleUpdateFormList"
         @change-curr-edit-item="handleChangeCurrEditItem"
+        @delete-node="handleDeleteNode"
       />
     </section>
     <aside class="property-wrap">
@@ -44,7 +45,7 @@ import ComponentsList from './components-list/Index'
 import Navbar from './form-content/Navbar'
 import ComponentProperty from './component-property/Index'
 
-import { updateNode } from '../utils/index'
+import { updateNode, deleteNode } from '../utils/index'
 
 export default {
   name: 'YlFormDesign',
@@ -88,6 +89,11 @@ export default {
     // 更新当前正在编辑的组件
     handleChangeCurrEditItem(item) {
       this.currEditItem = JSON.parse(JSON.stringify(item));
+    },
+    // 删除节点
+    handleDeleteNode(key) {
+      const org = JSON.parse(JSON.stringify(this.formJson));
+      this.formJson = deleteNode(org, key);
     },
     
     // 操作====================
