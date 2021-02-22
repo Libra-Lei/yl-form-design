@@ -5,8 +5,8 @@
  * @LastEditors: Libra
  */
 module.exports = {
-  publicPath: '/',
-  outputDir: 'dist',
+  publicPath: '/yl-form-design',
+  outputDir: 'docs',
   assetsDir: 'assets',
   css: {},
   devServer: {

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["home"],{bb51:function(e,n,t){"use strict";t.r(n);var c=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"home"},[t("yl-form-design")],1)},s=[],a={name:"Home"},o=a,i=(t("c5a0"),t("2877")),u=Object(i["a"])(o,c,s,!1,null,"b1ab13dc",null);n["default"]=u.exports},c5a0:function(e,n,t){"use strict";t("e117")},e117:function(e,n,t){}}]);
+//# sourceMappingURL=home.f3d4e36a.js.map
