@@ -11,11 +11,13 @@ module.exports = {
   productionSourceMap: false,
   css: {
     // extract: false,
-    // loaderOptions: {
-    //   less: {
-    //     javascriptEnabled: true
-    //   }
-    // }
+    loaderOptions: {
+      less: {
+        lessOptions: {
+          javascriptEnabled: true
+        }
+      }
+    }
   },
   devServer: {
     port: 8086
