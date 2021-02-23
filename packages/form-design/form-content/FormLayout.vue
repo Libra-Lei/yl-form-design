@@ -1,9 +1,4 @@
-<!--
- * @Description: 表单布局
- * @Author: Libra
- * @Date: 2021-02-02 15:46:10
- * @LastEditors: Libra
--->
+
 <template>
   <div class="form-conent">
     <draggable

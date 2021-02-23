@@ -1,10 +1,5 @@
-/*
- * @Description: 
- * @Author: Libra
- * @Date: 2021-02-01 10:28:33
- * @LastEditors: Libra
- */
-
+//处理兼容
+import "@babel/polyfill";
 // 引入 vuesax 包
 import './vs-components'
 

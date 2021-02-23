@@ -1,9 +1,3 @@
-<!--
- * @Description: 组件属性编辑面板
- * @Author: Libra
- * @Date: 2021-02-02 17:57:09
- * @LastEditors: Libra
--->
 
 <template>
   <div class="property">

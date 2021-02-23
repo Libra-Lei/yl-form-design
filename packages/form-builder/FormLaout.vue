@@ -1,10 +1,3 @@
-<!--
- * @Description: 布局
- * @Author: Libra
- * @Date: 2021-02-22 10:51:48
- * @LastEditors: Libra
--->
-
 <template>
   <div>
     <div

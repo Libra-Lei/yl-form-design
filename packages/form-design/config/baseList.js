@@ -1,9 +1,4 @@
-/*
- * @Description: 基础表单组件配置
- * @Author: Libra
- * @Date: 2021-02-01 13:11:06
- * @LastEditors: Libra
- */
+
 export default [
   {
     type: 'input', // 控件类型

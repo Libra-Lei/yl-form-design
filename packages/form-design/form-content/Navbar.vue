@@ -1,9 +1,3 @@
-<!--
- * @Description: 顶部操作栏
- * @Author: Libra
- * @Date: 2021-02-02 13:36:43
- * @LastEditors: Libra
--->
 
 <template>
   <div class="navbar-wrap">

@@ -1,9 +1,4 @@
-/*
- * @Description: 布局配置
- * @Author: Libra
- * @Date: 2021-02-01 13:11:19
- * @LastEditors: Libra
- */
+
 export default [
   // TODO: 待添加布局功能
   {

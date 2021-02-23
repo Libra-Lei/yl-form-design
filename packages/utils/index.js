@@ -1,9 +1,3 @@
-/*
- * @Description: 工具函数
- * @Author: Libra
- * @Date: 2021-02-22 10:19:35
- * @LastEditors: Libra
- */
 
 /**
  * 更新表单树（origin）的目标节点（target）

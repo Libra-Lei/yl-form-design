@@ -1,9 +1,3 @@
-/*
- * @Description: 
- * @Author: Libra
- * @Date: 2021-02-01 10:30:14
- * @LastEditors: Libra
- */
 import Vue from 'vue'
 
 import Vuesax from 'vuesax'

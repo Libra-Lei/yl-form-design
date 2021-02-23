@@ -1,9 +1,4 @@
-<!--
- * @Description: 表单生成器
- * @Author: Libra
- * @Date: 2021-02-04 16:27:35
- * @LastEditors: Libra
--->
+
 <template>
   <div id="b-form-wrap">
     <form-layout

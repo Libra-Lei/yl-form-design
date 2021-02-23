@@ -1,9 +1,3 @@
-<!--
- * @Description: 表单组件列表
- * @Author: Libra
- * @Date: 2021-02-01 14:37:32
- * @LastEditors: Libra
--->
 
 <template>
   <div class="components-list">

@@ -1,9 +1,3 @@
-<!--
- * @Description: 表单项节点
- * @Author: Libra
- * @Date: 2021-02-02 15:46:37
- * @LastEditors: Libra
--->
 
 <template>
   <div style="width: 100%;">

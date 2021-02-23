@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/Libra-Lei/yl-form-design#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "core-js": "^3.6.5",
     "jsonlint-mod": "^1.7.6",
     "material-icons": "^0.5.2",
