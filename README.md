@@ -4,7 +4,7 @@
 ## 一、在线预览地址
 [表单设计器](https://libra-lei.github.io/yl-form-design)
 
-## 安装
+## 二、安装和使用
 ### 安装模块
 ```
 # npm
