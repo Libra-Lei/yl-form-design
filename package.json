@@ -1,12 +1,30 @@
 {
   "name": "yl-form-design",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "基于vuesax的表单设计器",
+  "main": "dist/yl-form-design.umd.min.js.map",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name yl-form-design --dest dist packages/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Libra-Lei/yl-form-design.git"
+  },
+  "keywords": [
+    "vue",
+    "form",
+    "design"
+  ],
+  "author": "libra-lei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Libra-Lei/yl-form-design/issues"
+  },
+  "homepage": "https://github.com/Libra-Lei/yl-form-design#readme",
   "dependencies": {
     "core-js": "^3.6.5",
     "jsonlint-mod": "^1.7.6",
