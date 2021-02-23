@@ -8,7 +8,15 @@ module.exports = {
   publicPath: '/yl-form-design',
   outputDir: 'docs',
   assetsDir: 'assets',
-  css: {},
+  productionSourceMap: false,
+  css: {
+    // extract: false,
+    // loaderOptions: {
+    //   less: {
+    //     javascriptEnabled: true
+    //   }
+    // }
+  },
   devServer: {
     port: 8086
   }
