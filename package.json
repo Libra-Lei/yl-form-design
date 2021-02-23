@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "private": false,
   "description": "基于vuesax的表单设计器",
-  "main": "dist/yl-form-design.umd.min.js.map",
+  "main": "dist/yl-form-design.umd.min.js",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
