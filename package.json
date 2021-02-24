@@ -1,6 +1,6 @@
 {
   "name": "yl-form-design",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "description": "基于vuesax的表单设计器",
   "main": "dist/yl-form-design.umd.min.js",
