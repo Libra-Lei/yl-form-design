@@ -42,7 +42,7 @@
 <script>
 import { codemirror } from 'vue-codemirror-lite'
 import 'codemirror/mode/javascript/javascript';
-import('codemirror/mode/vue/vue');
+// import 'codemirror/mode/vue/vue';
 
 import YlFormBuild from '../../form-builder/index'
 

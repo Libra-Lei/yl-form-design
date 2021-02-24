@@ -17,4 +17,10 @@ module.exports = {
   devServer: {
     port: 8086
   }
+
+  // configureWebpack: config => {
+  //   output: {
+  //     filename: '[name].[id].bundle.js'
+  //   }
+  // }
 }
