@@ -25,7 +25,6 @@ Vue.use(YlFormDesign)
 <template>
   <div id="app">
     <yl-form-design></yl-form-design>
-    <!-- <FormDesignTCD /> -->
   </div>
 </template>
 ```
